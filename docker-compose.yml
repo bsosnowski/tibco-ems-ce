@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  ems:
+    image: tibco/ems-ce:8.5.1
+    container_name: ems
+    ports:
+      - 7222:7222
