@@ -1,0 +1,137 @@
+{
+    "factories": [
+        {
+            "name": "GenericConnectionFactory",
+            "connect_attempt_count": "60",
+            "connect_attempt_delay": "1000",
+            "connect_attempt_timeout": "1000",
+            "reconnect_attempt_count": "180",
+            "reconnect_attempt_delay": "5000",
+            "reconnect_attempt_timeout": "1000",
+            "multicast_enabled": "false",
+            "type": "generic",
+            "url": "tcp://7222"
+        },
+        {
+            "name": "TopicConnectionFactory",
+            "connect_attempt_count": "60",
+            "connect_attempt_delay": "1000",
+            "connect_attempt_timeout": "1000",
+            "reconnect_attempt_count": "180",
+            "reconnect_attempt_delay": "5000",
+            "reconnect_attempt_timeout": "1000",
+            "multicast_enabled": "false",
+            "type": "topic",
+            "url": "tcp://7222"
+        },
+        {
+            "name": "QueueConnectionFactory",
+            "connect_attempt_count": "60",
+            "connect_attempt_delay": "1000",
+            "connect_attempt_timeout": "1000",
+            "reconnect_attempt_count": "180",
+            "reconnect_attempt_delay": "5000",
+            "reconnect_attempt_timeout": "1000",
+            "multicast_enabled": "false",
+            "type": "queue",
+            "url": "tcp://7222"
+        }
+    ],
+    "groups": [
+        {
+            "description": "Administrators",
+            "members": [
+                {
+                    "name": "admin"
+                }
+            ],
+            "name":"$admin"
+        }
+    ],
+    "model_version": "1.0",
+    "queues": [
+        {
+            "name": ">",
+            "secure": true,
+            "prefetch": 1
+        }
+    ],
+    "stores": [
+        {
+            "file": "meta.db",
+            "file_minimum": "64MB",
+            "mode": "async",
+            "name":"$sys.meta",
+            "type": "file"
+        },
+        {
+            "file": "async-msgs.db",
+            "mode": "async",
+            "name":"$sys.nonfailsafe",
+            "type": "file",
+            "file_destination_defrag": "2MB",
+            "file_truncate": "true",
+            "file_minimum": "1GB"
+        },
+        {
+            "file": "sync-msgs.db",
+            "file_destination_defrag": "2MB",
+            "file_truncate": "true",
+            "file_minimum": "1GB",
+            "mode": "sync",
+            "name":"$sys.failsafe",
+            "type": "file"
+        }
+    ],
+    "tibemsd": {
+        "monitor_listen": "http://0.0.0.0:7220",
+        "always_exit_on_disk_error": true,
+        "authorization": false,
+        "client_heartbeat_server": 25,
+        "client_timeout_server_connection": 90,
+        "clock_sync_interval": 86400,
+        "console_trace": "DEFAULT,+INFO,+WARNING,+LIMITS,+ACL,+ROUTE,+ADMIN,+CONFIG,+CONNECT,+CONNECT_ERROR,+MSG,+RVADV",
+        "detailed_statistics": "NONE",
+        "flow_control": true,
+        "ft_activation": 25,
+        "ft_heartbeat": 5,
+        "ft_reconnect_timeout": 900,
+        "ft_ssl": {
+            "ssl_verify_host": false
+        },
+        "log_trace": "DEFAULT,+INFO,+WARNING,+LIMITS,+ACL,+ROUTE,+ADMIN,+CONFIG,+CONNECT,+CONNECT_ERROR,+MSG,+RVADV",
+        "logfile": "/opt/tibco/ems/log/emsdata.log",
+        "logfile_max_count": 100,
+        "logfile_max_size": "500KB",
+        "max_connections": "0",
+        "max_msg_memory": "2GB",
+        "max_stat_memory": "64MB",
+        "msg_swapping": true,
+        "multicast": false,
+        "rate_interval": 3,
+        "reserve_memory": "128MB",
+        "routing": true,
+        "server": "EMS-SERVER",
+        "server_heartbeat_client": 25,
+        "server_heartbeat_server": 25,
+        "server_rate_interval": 1,
+        "server_timeout_client_connection": 90,
+        "server_timeout_server_connection": 90,
+        "statistics": true,
+        "statistics_cleanup_interval": 30,
+        "store": "/opt/tibco/ems/datastore"
+    },
+    "topics": [
+        {
+            "name": ">",
+            "prefetch": 1,
+            "secure": true
+        }
+    ],
+    "users": [
+        {
+            "description": "Administrator",
+            "name": "admin"
+        }
+    ]
+}

@@ -1,12 +1,11 @@
 # TIBCO EMS Community Edition
 Simple docker image for TIBCO EMS Community Edition.
 
-Currently it was tested with version 8.5.1.
-Hibernate is being removed during the image build.
+Currently it was tested with version 10.3.0.
 
 ## Installation
 
-1. Download *TIB_ems-ce_8.5.1_linux_x86_64.zip* to folder named dist.
+1. Download *TIB_ems_10.3.0_linux_x86_64.zip* to folder named dist.
 2. Build image by executing:
 
     ```bash
