@@ -2,7 +2,13 @@ version: '3'
 
 services:
   ems:
-    image: tibco/ems-ce:8.5.1
+    image: tibco/ems-ce:10.3.0
     container_name: ems
     ports:
       - 7222:7222
+      - 7220:7220
+  otel-collector:
+    profiles: [otel]
+    image: otel/opentelemetry-collector-contrib
+    volumes:
+      - ./config/otel-collector/config.yaml:/etc/otelcol-contrib/config.yaml

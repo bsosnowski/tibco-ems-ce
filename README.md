@@ -1,26 +1,32 @@
 # TIBCO EMS Community Edition
 Simple docker image for TIBCO EMS Community Edition.
 
-Currently it was tested with version 8.5.1.
-Hibernate is being removed during the image build.
+Currently it was tested with version 10.3.0.
 
 ## Installation
 
-1. Download *TIB_ems-ce_8.5.1_linux_x86_64.zip* to folder named dist.
+1. Download *TIB_ems_10.3.0_linux_x86_64.zip* to folder named dist:
+    ```
+    dist
+    └── TIB_ems_10.3.0_linux_x86_64.zip
+    ```
 2. Build image by executing:
-
     ```bash
     ./build.sh
     ```
 
-3. Use docke-compose to run it:
-    
+3. Use docke-compose to run it:  
     ```bash
     docker-compose up -d
     ```
 
 4. You can filter your new image using labels:
-    
     ```bash
     docker images --filter "label=vendor=TIBCO"
     ```
+
+## OpenTelmetry
+TIBCO EMS 10.3.0 release introduces Prometheus Metrics. [docker-compose](docker-compose.yml) provides Otel Collector which will scrape EMS metrics and send those to Prometheus endpoint. In order to enable Otel Collector, execute `docker compose up` with `otel` profile enabled:
+```
+docker compose --profile otel up
+```
