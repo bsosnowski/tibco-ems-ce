@@ -1,7 +1,7 @@
 ARG EMS_VER
 ARG EMS_VER_SHORT
 
-FROM debian:bookworm-slim as build
+FROM debian:bookworm-slim AS build
 
 LABEL vendor="TIBCO"
 LABEL intermediate=true

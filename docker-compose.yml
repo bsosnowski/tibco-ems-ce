@@ -7,3 +7,7 @@ services:
     ports:
       - 7222:7222
       - 7220:7220
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib
+    volumes:
+      - ./config/otel-collector/config.yaml:/etc/otelcol-contrib/config.yaml

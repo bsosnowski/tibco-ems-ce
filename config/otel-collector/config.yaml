@@ -1,0 +1,22 @@
+receivers:
+  prometheus:
+    config:
+      scrape_configs:
+        - job_name: 'tibco-ems'
+          scrape_interval: 5s
+          static_configs:
+            - targets: ['ems:7220']
+
+exporters:
+  prometheusremotewrite:
+    endpoint: "https://prometheus.k3s.intware.eu/api/v1/write"
+    external_labels:
+      app: ems
+      vendor: tibco
+
+ 
+service:
+  pipelines:
+    metrics:
+      receivers: [prometheus]
+      exporters: [prometheusremotewrite]
