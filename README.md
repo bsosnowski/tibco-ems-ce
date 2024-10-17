@@ -26,7 +26,8 @@ Currently it was tested with version 10.3.0.
     ```
 
 ## OpenTelmetry
-TIBCO EMS 10.3.0 release introduces Prometheus Metrics. [docker-compose](docker-compose.yml) provides Otel Collector which will scrape EMS metrics and send those to Prometheus endpoint. In order to enable Otel Collector, execute `docker compose up` with `otel` profile enabled:
+The TIBCO EMS 10.3.0 release introduces Prometheus metrics. [docker-compose](docker-compose.yml) provides Otel Collector, which scraps EMS metrics and sends them to the Prometheus endpoint. To enable OTEL Collector, run `docker compose up` with the `otel` profile enabled:
+
 ```
 docker compose --profile otel up
 ```
