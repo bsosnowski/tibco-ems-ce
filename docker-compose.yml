@@ -8,6 +8,7 @@ services:
       - 7222:7222
       - 7220:7220
   otel-collector:
+    profiles: [otel]
     image: otel/opentelemetry-collector-contrib
     volumes:
       - ./config/otel-collector/config.yaml:/etc/otelcol-contrib/config.yaml
